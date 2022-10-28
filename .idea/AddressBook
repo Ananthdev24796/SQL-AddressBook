@@ -1,0 +1,63 @@
+/*
+UC1
+*/
+create database address_book_system;
+use address_book_system;
+
+
+/*
+UC2
+*/
+
+create table address_book(
+firstName varchar(25),
+lastName varchar(25),
+address varchar(25),
+city varchar(10),
+state varchar(10),
+zip char(6),
+phoneNumber varchar(12),
+emailId varchar(25),
+primary key(firstName)
+);
+
+/*
+UC3
+*/
+insert into address_book (firstName,lastName,address,city,state,zip,phoneNumber,emailId) values
+("Ananth","Nair","ThiruNagar","Madurai","TN",625006,"9012414532","ananth@icloud.com"),
+("Divakar","Saravanan","VpcNagar","Madurai","TN",625006,"1412543673","divakar@mail.com"),
+("Sachin","Raman","Thuraipakkaram","Chennai","TN",201231,"743634653","sachin@yahoo.com");
+
+select *from address_book;
+
+
+/*
+UC4
+*/
+
+update address_book set emailId = "divakar@gmail.com" where firstName = "Divakar";
+select *from address_book;
+
+
+/*
+UC5
+*/
+
+delete from address_book where FirstName = "Sachin";
+select *from address_book;
+
+
+/*
+UC6
+*/
+select * from address_book where city = "Madurai";
+
+
+/*
+UC7
+*/
+
+select city ,count(*) from address_book group by city;
+select state,count(state) from address_book;
+
